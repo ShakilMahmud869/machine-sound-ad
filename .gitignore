@@ -1,0 +1,25 @@
+# Data and large artefacts stay out of the repo
+data/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.wav
+*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Tools / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

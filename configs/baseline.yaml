@@ -1,0 +1,39 @@
+# All hyperparameters live here. Nothing in src/ should be hard-coded.
+# Values marked TODO must be confirmed from the data itself (Milestone 1, step 2).
+
+seed: 42
+
+paths:
+  data_root: data/dev_data/raw      # <data_root>/<machine>/{train,test}/*.wav
+  cache_dir: data/cache             # cached .pt feature files
+  checkpoint_dir: checkpoints
+  results_dir: results
+
+machines: [fan, valve]              # start with two; add the other five later
+
+audio:
+  sample_rate: 16000                # TODO: confirm with soundfile.info() on a real WAV
+  # clip length (s) and channels: TODO, write what the header says here as a comment
+
+features:
+  n_fft: 1024                       # 64 ms at 16 kHz
+  hop_length: 512                   # 50 % hop
+  n_mels: 128
+  power: 2.0
+  n_frames: 5                       # stacked context frames -> 5 * 128 = 640 inputs
+
+model:
+  name: autoencoder
+  hidden: 128
+  bottleneck: 8
+
+training:
+  epochs: 100
+  batch_size: 256
+  lr: 0.001
+  val_fraction: 0.1                 # held-out fraction of *training files* (not frames)
+  num_workers: 0                    # 0 is safest on Windows
+
+evaluation:
+  max_fpr: 0.1                      # pAUC range: FPR in [0, 0.1]
+  threshold_percentile: 90          # Milestone 4: decision threshold from normal train scores

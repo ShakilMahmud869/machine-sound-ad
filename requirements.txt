@@ -1,0 +1,12 @@
+# Pin exact versions in Milestone 5 (pip freeze), once everything works.
+torch
+torchaudio
+numpy
+pandas
+scikit-learn
+matplotlib
+soundfile
+pyyaml
+tqdm
+pytest
+jupyter
