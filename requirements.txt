@@ -1,6 +1,9 @@
 # Pin exact versions in Milestone 5 (pip freeze), once everything works.
-torch
-torchaudio
+# torch 2.14.1 fails on import on Windows (WinError 1114, c10.dll); 2.8.0 works.
+# torchaudio 2.8 is the last release where torchaudio.load works without torchcodec.
+# CPU build: pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.8.0
+torchaudio==2.8.0
 numpy
 pandas
 scikit-learn
