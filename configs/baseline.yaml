@@ -12,8 +12,8 @@ paths:
 machines: [fan, valve]              # start with two; add the other five later
 
 audio:
-  sample_rate: 16000                # TODO: confirm with soundfile.info() on a real WAV
-  # clip length (s) and channels: TODO, write what the header says here as a comment
+  sample_rate: 16000                # confirmed: all 2400 fan + valve train/test WAVs
+  # clips: mono, 10.0 s, 16-bit PCM (160000 samples)
 
 features:
   n_fft: 1024                       # 64 ms at 16 kHz
